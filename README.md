@@ -4,7 +4,7 @@
 
 <img src="https://img.shields.io/badge/Claude-Skills-0f7b5f?style=for-the-badge&logo=anthropic&logoColor=white" alt="Claude Skills"/>
 
-# Run your job search like a system, not a scramble
+# Run your job search like a system, don't spray and pray
 
 **Two skills that find roles, tailor your resume, and get smarter every time you hear back.**
 
