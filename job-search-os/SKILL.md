@@ -1,6 +1,6 @@
 ---
 name: job-search-os
-description: Build and run a personal, self-improving job-search system. Use this skill when someone wants to set up a job hunt from scratch, find and track roles that fit them, score and filter listings, or learn over time which roles, framings, and keywords actually get callbacks. Trigger on phrases like "help me set up my job search", "build my job hunt system", "find roles for me", "what should I apply to", "track my applications", "set up a job search OS", "run my daily job search", or whenever someone shares their background and asks for a system to manage their search. On first use it interviews the person and builds their living files; on later runs it finds roles, verifies listings, and updates what it has learned. Pairs with the resume-tailor skill.
+description: Build and run a personal, self-improving job-search system. Use this skill when someone wants to set up a job hunt from scratch, find and track roles that fit them, score and filter listings, or learn over time which roles, framings, and keywords actually get callbacks. Trigger on phrases like "help me set up my job search", "build my job hunt system", "find roles for me", "what should I apply to", "track this job", "track this role", "track my applications", "set up a job search OS", "run my daily job search", or whenever someone shares their background and asks for a system to manage their search. On first use it interviews the person and builds their living files; on later runs it finds roles, verifies listings, writes roles to both Notion and roles-tracker.md when a Notion Roles database is available, and updates what it has learned. Pairs with the resume-tailor skill.
 ---
 
 # Job Search OS
@@ -54,7 +54,7 @@ Then create the living files (see `references/file-templates.md` for the full st
 | `daily-runbook.md` | The model-agnostic operating procedure for a daily search: read order, verification rules, scoring, tracker writes, digest shape, and post-run maintenance. |
 | `run-config.md` | The small editable config for automated runs: schedule, search scope, volume caps, tracker details, attribution fields, and any temporary overrides. |
 | `/Resume RAG/` | Library of prior tailored resumes (markdown) + an index, so the closest prior resume can be reused. |
-| A tracker | A roles table the person can see at a glance — markdown table, CSV, or a Notion/Sheets board if they prefer. Columns: Role, Company, Status, Score, Location, Salary, Link, Date Found, Why It Fits, Concerns, plus learning columns filled in later: Why I Applied, Confirmed Signal, Notes. |
+| A tracker | A roles table the person can see at a glance. Default to `roles-tracker.md`; if a Notion `Roles` database is available or discoverable, mirror each tracked role to Notion as well. Columns/properties: Role, Company, Status, Score, Location, Salary, Link, Date Found, Why It Fits, Concerns, plus learning columns filled in later: Why I Applied, Confirmed Signal, Notes. |
 
 If the person wants recurring automation, create `daily-runbook.md` and `run-config.md` during setup. The scheduler prompt itself should stay tiny and stable, for example: "Run the job-search OS using `run-config.md` and `daily-runbook.md`; read all living files fresh; write the tracker and digest." Put learnings and changed instructions back into the markdown files, not into the scheduler prompt.
 
@@ -75,6 +75,17 @@ If `daily-runbook.md` or `run-config.md` is missing but the person is running da
 If the tracker carries any feedback the person left on roles (why they passed or progressed), read it first and let it tighten scoring. Treat person-authored feedback as stronger than your own inference. When 2+ pieces of feedback share a pattern, update `search-config.md` / `search-patterns.md` and log the change.
 
 For Notion/Sheets trackers, look for fields such as `Listing Feedback`, `Why I Applied`, `Confirmed Signal`, `Notes`, `Status`, and `Pass Reason`. Do not add near-duplicate cards; update the existing card if the canonical ATS link, company+title, or requisition ID matches.
+
+### Step 2.5 — Resolve tracker destinations
+
+For any explicit request like "track this job" or "track this role", write to both destinations whenever possible:
+
+- **Local tracker:** update `roles-tracker.md`.
+- **Notion tracker:** if Notion tools are available, search the workspace for the job tracker/database using queries like `job search applications roles tracker interview prep`; prefer a database named `Roles` under a page named `Job Search Tracker`. Fetch the database before writing so property names and select options match the live schema. If a Notion tracker was already discovered in this run, reuse it.
+
+Before creating a Notion row, search for duplicates by canonical ATS URL/requisition ID and by company+role. Update the existing Notion page if found; otherwise create a new page in the `Roles` data source. Record the Notion page URL in the local tracker notes when available.
+
+If Notion tools are unavailable or no tracker can be found, still update `roles-tracker.md`, mention that Notion could not be updated, and do not invent a Notion location.
 
 ### Step 3 — Search
 
@@ -97,7 +108,7 @@ For active cards, re-verify the link on each run and stamp "Last verified: [date
 
 ### Step 5 — Score, explain, and log
 
-Score each confirmed role against the profile and config. **Explain your reasoning** when you score or position a role, so the person can correct the system. Add live roles to the tracker with a fit score, why-it-fits, and concerns. Report at least a handful of outcomes per run; if there aren't enough confirmed-live new roles, say so honestly rather than inflating the list.
+Score each confirmed role against the profile and config. **Explain your reasoning** when you score or position a role, so the person can correct the system. Add live roles to `roles-tracker.md` and, when available, the Notion `Roles` database with a fit score, why-it-fits, concerns, canonical ATS link, verification signal, date found, and model/agent attribution. Report at least a handful of outcomes per run; if there aren't enough confirmed-live new roles, say so honestly rather than inflating the list.
 
 When the person decides to apply, hand off to the **resume-tailor** skill (if installed) to build the tailored resume, and add a row to `keyword-ledger.md`.
 
