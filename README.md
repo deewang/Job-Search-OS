@@ -142,6 +142,12 @@ Once setup is done, this is the loop you run:
 
 It searches, weeds out dead listings, scores what's left, and tells you *why* each one fits.
 
+**Tracking a role you found yourself**
+
+> *"track this for me"* + paste the job description or a URL
+
+Found something on your own? Paste the JD text or drop in the URL (if the page isn't blocked) and the skill logs it to your tracker — same format as anything it finds itself, so everything stays in one place.
+
 **Tailoring your resume**
 
 > *"tailor my resume for this"* + paste the job description
