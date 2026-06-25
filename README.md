@@ -61,11 +61,11 @@ The second idea is about **truth**. These skills never invent a metric or a job 
 
 ## What each skill does
 
-| | `job-search-os` | `resume-tailor` |
+| | [`job-search-os`](job-search-os/SKILL.md) | [`resume-tailor`](resume-tailor/SKILL.md) |
 |---|---|---|
 | **Role** | Your search command centre | Your resume writer |
 | **Input** | Your background, targets, outcomes | A job description (text, URL, or file) |
-| **Output** | Scored role list, tracked applications, pattern insights | Tailored resume + optional cover letter |
+| **Output** | Scored role list, tracked applications, pattern insights | Tailored resume (DOCX + PDF) + optional cover letter |
 | **Superpower** | **Checks each listing is live** before you waste a click | Leads with your strongest-matching proof every time |
 | **Gets smarter?** | Yes — learns your patterns from logged outcomes | Yes — reads outcomes back from job-search-os |
 

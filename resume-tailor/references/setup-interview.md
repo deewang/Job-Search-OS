@@ -1,0 +1,33 @@
+# First-run setup interview
+
+Run this the first time the skill is used, or whenever `profile.md` / `resume-format.md` are missing. The goal is to create the living files **for** the user from their real answers — don't hand them blank templates to fill in.
+
+If the user has uploaded or pointed to an existing resume, **extract everything you can from it first**, then only ask about the gaps.
+
+## Ask in one focused batch (not 20 separate turns)
+
+1. **Background:** years of experience, current/most recent roles, the domains they work in, and the role + seniority they're targeting.
+2. **Constraints:** target locations (remote / specific cities / open to relocation), minimum salary, company stage/size preferences, hard exclusions (industries, role types, or title levels too junior or too senior).
+3. **Proof:** their biggest achievements with real numbers (revenue, growth, scale, users, team size). Push for metrics — these become the achievement bank.
+4. **Materials:** do they have an existing resume, prior tailored resumes, or a writing sample they want cover letters to sound like? Ask them to share or point to these.
+
+## Then create the files
+
+**`profile.md`** — the achievement bank:
+- Who they are (2–3 lines for job matching), a career timeline table, and a bank of achievement bullets WITH NUMBERS grouped by theme.
+- A "Core Strengths" list mapping skills to real shipped work.
+- A "What Makes Me Stand Out" section: 5–8 distinct angles, each tagged with the role/company type it's best used for.
+- A "Metric Notes" table for any metric stated differently across versions, with a recommended canonical number. This is the ONLY place resume metrics come from.
+
+**`resume-format.md`** — how the resume is built:
+- Document format spec (font, margins, sizes, bullet style) derived from their best existing resume (the "gold standard" — note its file path).
+- Section order and per-section writing rules (summary, highlights, experience bullets).
+- A tailoring checklist to run before every resume is finalised (e.g. target title matches the JD, ≥3 JD keywords in the summary, no company names/metrics in the summary, highlights ordered by relevance, no "→"/em-dashes/"responsible for", consistent font).
+- File-naming and save-location conventions.
+- Writing rules to avoid (e.g. no "responsible for", no em-dashes, active voice, numerals for metrics, one idea per bullet). Capture their preferred English variant (US/UK/AU).
+
+**`/Resume RAG/`** — seed it with whatever resumes they share, saved as markdown, plus a short index file (`00_source_index.md`) listing each file with its target domain/title so the skill can find the closest match quickly.
+
+Optionally, if they also want the full job-search system (config, learnings loop, tracker), point them to the companion **job-search-os** skill, which builds the rest of the living files.
+
+Once the files exist, confirm with the user and continue to the normal workflow in `SKILL.md`.
