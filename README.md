@@ -85,7 +85,7 @@ Searches your target boards and companies for matching roles, verifies every lis
 After each outcome (rejection, callback, interview, ghosting), update the system. It logs the signal, updates your keyword ledger, generates or strengthens hypotheses, and promotes anything confirmed by 3+ data points to your patterns file. Over time it tells you which domains, framings, and keywords actually get you callbacks — and stops leading with the ones that don't.
 
 **3. Scheduled runs** *(if scheduling is available)*
-Offer a daily find-and-track pass and a weekly learning pass, so the loop runs without you having to remember to kick it off.
+Offer a daily find-and-track pass and a weekly learning pass, so the loop runs without you having to remember to kick it off. The scheduled prompt stays tiny; the real instructions live in editable markdown files (`daily-runbook.md` and `run-config.md`) so the same setup can run under Claude, Codex, or another agent.
 
 </details>
 
@@ -174,7 +174,7 @@ After setup, you'll have a folder of plain markdown files. They're yours — ope
 
 > **No Notion required.** Everything is plain markdown in whatever folder you connect. The tracker is a markdown table by default — but if you'd prefer Notion or Google Sheets, just say so during setup.
 
-The files fall into four groups:
+The files fall into five groups:
 
 ### Core source files
 *Both skills read these on every run. This is where your real material lives.*
@@ -227,6 +227,31 @@ Edit this whenever your search shifts. The next run reads it fresh — no re-set
 A tiered list of job boards (reliable ATS boards → aggregators → niche) plus target companies grouped by domain, each with its career-page URL. Also tracks active applications and any recruiter contact history.
 
 The skill goes to these sources first on every search — not just Googling randomly.
+
+</details>
+
+### Run files
+*Used by recurring or multi-agent searches so the automation stays portable.*
+
+<details>
+<summary><strong>daily-runbook.md — how the search runs</strong></summary>
+
+<br/>
+
+The durable operating procedure for daily searches: read order, tracker feedback fields, search/verification rules, scoring rubric, duplicate handling, digest format, and what to update after a run.
+
+This is where learnings about the run itself go. Don't bury them inside a scheduled-task prompt.
+
+</details>
+
+<details>
+<summary><strong>run-config.md — the small editable config</strong></summary>
+
+<br/>
+
+The knobs for automation: run mode, schedule, source priority, volume caps, tracker integration, model attribution, digest preferences, safety rails, and temporary overrides.
+
+Think of it as the thing a scheduler points at. The scheduler says "run this"; this file says exactly how.
 
 </details>
 
@@ -301,6 +326,8 @@ You barely have to — most customisation happens by using it. But here's how to
 
 **Edit a file**
 Open `search-config.md` and change what you're targeting. Open `profile.md` and add a win you forgot. Both routes end up in the same place — the skill reads the live files on every run.
+
+For recurring jobs, edit `run-config.md` for operational settings and `daily-runbook.md` for durable instructions. That keeps you from being stuck with whatever prompt happened to be pasted into one scheduler.
 
 **Let the loop do it**
 The most powerful customisation is just logging outcomes consistently. After a few weeks, the system knows which framings get you callbacks and which get you filtered — and it adjusts automatically.
