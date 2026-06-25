@@ -28,17 +28,17 @@ These two skills are that system, packaged up for you.
 
 ## Table of contents
 
-- [Why these exist](#why-these-exist)
-- [What each skill does](#what-each-skill-does)
-- [How to set up](#how-to-set-up)
+- [How it works](#how-it-works)
+- [The two skills](#the-two-skills)
+- [Getting started](#getting-started)
 - [Day-to-day use](#day-to-day-use)
-- [The files it creates](#the-files-it-creates)
+- [Your files](#your-files)
 - [How to customise](#how-to-customise)
 - [Quick-start recap](#quick-start-recap)
 
 ---
 
-## Why these exist
+## How it works
 
 Job searching is one of those things that *should* get easier the longer you do it — but somehow never does.
 
@@ -55,129 +55,140 @@ The idea here is simple. **Treat every application as a data point.** A rejectio
        └────────────────── (every loop, sharper) ──────────────────┘
 ```
 
-The second idea is about **truth**. These skills never invent a metric or a job you didn't have. They take your *real* achievements and reframe them to fit the role in front of you. If a job wants something you don't have, the system flags it as a gap honestly — so you can speak to it in the interview instead of getting caught out. (Trust me, that's the better trade.)
+One more thing: these skills never invent a metric or a job you didn't have. They take your *real* achievements and reframe them to fit the role in front of you. If a job wants something you don't have, they flag it as a gap honestly — so you can speak to it in the interview instead of getting caught out. (That's the better trade.)
 
 ---
 
-## What each skill does
+## The two skills
 
 | | [`job-search-os`](job-search-os/SKILL.md) | [`resume-tailor`](resume-tailor/SKILL.md) |
 |---|---|---|
 | **Role** | Your search command centre | Your resume writer |
 | **Input** | Your background, targets, outcomes | A job description (text, URL, or file) |
 | **Output** | Scored role list, tracked applications, pattern insights | Tailored resume (DOCX + PDF) + optional cover letter |
-| **Superpower** | **Checks each listing is live** before you waste a click | Leads with your strongest-matching proof every time |
-| **Gets smarter?** | Yes — learns your patterns from logged outcomes | Yes — reads outcomes back from job-search-os |
+| **Superpower** | Checks every listing is **actually live** before you click | Leads with your **strongest-matching proof** every time |
+| **Gets smarter?** | Yes — learns from logged outcomes | Yes — reads the keyword ledger, reuses what worked |
+
+> **They're better together.** `job-search-os` builds and maintains your living files. `resume-tailor` reads those same files and writes outcomes back. Install both and the loop closes. But each works fine on its own — don't stress if you only want one to start.
 
 <details>
-<summary><strong>job-search-os — more detail</strong></summary>
+<summary><strong>job-search-os in depth</strong></summary>
 
 <br/>
 
-Your search command centre. It interviews you once and builds living files: who you are, what you're targeting, where to look, what you're learning.
+Your search command centre. It interviews you once, builds your living files, then runs three jobs on demand:
 
-Then it:
-- **Finds roles** matching your background and targets
-- **Checks each listing is actually live** — so you stop wasting clicks on dead links
-- **Scores and explains** why each role fits (so you can push back when it gets you wrong)
-- **Tracks your applications** and outcomes in one place
-- **Tells you what's working** after a few weeks of data
+**1. Find & track**
+Searches your target boards and companies for matching roles, verifies every listing is live at its canonical ATS URL (not just an aggregator link), scores and explains each fit, and logs them to your tracker. You can also paste in a role you found yourself — *"track this for me"* + a JD or URL — and it'll add it to the same tracker.
+
+**2. Learn**
+After each outcome (rejection, callback, interview, ghosting), update the system. It logs the signal, updates your keyword ledger, generates or strengthens hypotheses, and promotes anything confirmed by 3+ data points to your patterns file. Over time it tells you which domains, framings, and keywords actually get you callbacks — and stops leading with the ones that don't.
+
+**3. Scheduled runs** *(if scheduling is available)*
+Offer a daily find-and-track pass and a weekly learning pass, so the loop runs without you having to remember to kick it off.
 
 </details>
 
 <details>
-<summary><strong>resume-tailor — more detail</strong></summary>
+<summary><strong>resume-tailor in depth</strong></summary>
 
 <br/>
 
-Your resume writer. Give it a job description as text, a link, or a file and it builds a tailored resume that:
+Your resume writer. Give it a job description as text, a link, or a file and it:
 
-- Mirrors the role's **exact language** (the words recruiters and ATS systems scan for)
-- **Leads with your strongest-matching proof** — not just chronological order
-- **Reuses phrasing that already worked** from your keyword ledger
-- Flags any **genuine gaps** so you can prep for them in the interview
-- Writes a **matching cover letter** in your voice — but only after the resume feels right
+1. Reads your `profile.md` achievement bank and `resume-format.md` layout rules
+2. Finds the closest prior resume in your `/Resume RAG/` library and reuses proven language
+3. Mirrors the JD's exact language for ATS keyword matching
+4. Orders your highlights strongest-match-first — not just chronologically
+5. Flags any genuine gaps so you can prep for them in the interview
+6. Saves a DOCX + PDF to a per-company folder
 
-> Resume first, always.
+Cover letter only comes *after* the resume is finalised — and it matches the same angle, same proof points, same ordering. Resume first, always.
 
 </details>
-
-<br/>
-
-> **They're better together.** `job-search-os` builds and maintains your files. `resume-tailor` reads those same files and writes outcomes back into them. Install both and the loop closes. But each one works perfectly fine on its own — don't stress if you only want one to start.
 
 ---
 
-## How to set up
+## Getting started
 
-> **One honest note first.** These work best in **Cowork with a folder connected**, or inside a **Claude Project**. That's because the living files need to stick around between chats. In a normal one-off chat they still run, but nothing carries over — and that memory is what makes them useful. Connect a folder if you can.
+> **One honest note first.** These work best in **Cowork with a folder connected**, or inside a **Claude Project**. The living files need to stick around between chats — that persistence is what makes the system get smarter. In a one-off chat they still run, but nothing carries over. Connect a folder if you can.
 
-<br/>
+**Step 1 — Install the skills**
 
-**Step 1 — Install both skills**
-
-Download `job-search-os.skill` and `resume-tailor.skill` from this repo, then open each file in Claude and hit **Save skill**. That's it. They're available in every chat from that point.
+Download `job-search-os.skill` and `resume-tailor.skill` from this repo, open each in Claude, and hit **Save skill**. Done — they're available in every chat from that point.
 
 **Step 2 — Connect a folder**
 
-In Cowork or a Claude Project, connect a local folder. This is where the living files will live. It doesn't need to be organised — just needs to exist.
+In Cowork or a Claude Project, connect a local folder. This is where all the living files will live. It doesn't need to be organised — just needs to exist.
 
-**Step 3 — Run the setup interview**
+**Step 3 — Run setup**
 
-Start a chat and say: *"help me set up my job search."*
+How you start depends on which skill you're using:
 
-It asks a focused batch of questions about your background, what you're targeting, and your biggest wins with real numbers. **Give it proper metrics here.** The more honest detail you put in, the better everything downstream gets. (Vague in, vague out.)
+| If you want… | Say… |
+|---|---|
+| The full job-search system (find roles + tailor resumes) | *"help me set up my job search"* |
+| Resume tailoring only | *"tailor my resume"* + paste a JD |
 
-> **Heads up:** the first run feels like an interview, not magic. That's the setup tax. Once your files exist, every run after is fast. Don't judge it by minute one.
+Either way, the skill interviews you in one focused batch — not 20 separate turns. It asks about your background, targets, achievements (with real numbers), and any existing resume you want to use as a format reference. If you share a resume upfront, it extracts everything it can and only asks about the gaps.
+
+> **The first run feels like an interview, not magic.** That's the setup tax. Once your files exist, every run after is fast. Don't judge it by minute one.
 
 ---
 
 ## Day-to-day use
 
-Once setup is done, this is the loop you run:
+Once you're set up, most days look like one of these:
 
-**Finding roles**
+**Find roles** `job-search-os`
 
 > *"find roles for me"* or *"what should I apply to"*
 
-It searches, weeds out dead listings, scores what's left, and tells you *why* each one fits.
+Searches, kills dead listings, scores what's left, explains why each fits.
 
-**Tracking a role you found yourself**
+**Track something you found yourself** `job-search-os`
 
-> *"track this for me"* + paste the job description or a URL
+> *"track this for me"* + paste the JD or URL
 
-Found something on your own? Paste the JD text or drop in the URL (if the page isn't blocked) and the skill logs it to your tracker — same format as anything it finds itself, so everything stays in one place.
+Logs it to your tracker in the same format as anything the skill finds — so everything stays in one place.
 
-**Tailoring your resume**
+**Tailor your resume** `resume-tailor`
 
-> *"tailor my resume for this"* + paste the job description
+> *"tailor my resume for this"* + paste the JD
 
-You get a resume back, plus a note on the angle it led with and any gaps to prep for. Ask for a cover letter only once the resume feels right.
+You get a resume back, a note on the angle it led with, and any gaps to prep for. Ask for a cover letter only once the resume feels right.
 
-**Logging outcomes — the part everyone skips**
+**Log an outcome** `job-search-os`
 
-> *"I got rejected from the X role"* or *"the Y company booked a recruiter call"*
+> *"I got rejected from X"* or *"Y booked a recruiter call"*
 
-Every time you hear back (ghosted, rejected, recruiter call, interview) — tell it. It logs the signal and slowly figures out what's working for you. After a few weeks, your resumes get noticeably sharper because they're learning from real results, not guesses.
+Every time you hear back — ghosted, rejected, call, interview — tell it. This is the part most people skip, and it's the whole point. It logs the signal, updates what's working, and the next resume gets a little sharper because of it.
 
-> **One quiet rule it follows:** would a tired recruiter, skimming for 20 seconds, instantly see why you fit *this exact* role? If not, it re-orders until they would. That's the bar.
+> **The bar it holds itself to:** would a tired recruiter, skimming for 20 seconds, immediately see why you fit *this exact* role? If not, it re-orders until they would.
 
 ---
 
-## The files it creates
+## Your files
 
-After setup, you'll have a folder of plain markdown files. They're yours — open and edit any of them by hand anytime.
+After setup, you'll have a folder of plain markdown files. They're yours — open and edit any of them by hand at any time.
 
-> **No Notion required.** Everything lives in plain markdown files in whatever folder you connect. The tracker is a markdown table by default — but if you'd prefer a Notion or Google Sheets board, just say so during setup and it'll build it there instead.
+> **No Notion required.** Everything is plain markdown in whatever folder you connect. The tracker is a markdown table by default — but if you'd prefer Notion or Google Sheets, just say so during setup.
+
+The files fall into four groups:
+
+### Core source files
+*Both skills read these on every run. This is where your real material lives.*
 
 <details>
 <summary><strong>profile.md — your achievement bank</strong></summary>
 
 <br/>
 
-This is the one to invest in. Every metric and bullet in every resume comes from here.
+The most important file. Every resume metric and bullet comes from here — it's the only place.
 
-If a number is wrong, fix it here. If a win is missing, add it here. Everything downstream updates automatically. Think of it as your source of truth — not just a resume, but *everything you've done* that might ever be relevant.
+Contains: who you are (2–3 lines for job matching), career timeline, achievement bullets **with real numbers** grouped by theme, core strengths mapped to shipped work, 5–8 "what makes me stand out" angles each tagged to the role type they suit best, and a Metric Notes table for any number you state differently across versions.
+
+If a number is wrong, fix it here. If a win is missing, add it here. Everything downstream updates automatically.
 
 </details>
 
@@ -186,20 +197,25 @@ If a number is wrong, fix it here. If a win is missing, add it here. Everything 
 
 <br/>
 
-Controls how your resume gets built: font, margins, section order, bullet style, do's and don'ts. Point it at your best existing resume as the template and it matches that look every time.
+Controls how every resume gets built: font, margins, section order, bullet style, writing rules to avoid, and your preferred English variant (AU/US/UK).
 
-If you hate a particular formatting choice, fix it here once and it never comes back.
+Also holds the tailoring checklist the skill runs before finalising any resume — things like "target title matches the JD", "≥3 JD keywords in the summary", "no company names or metrics in the summary", "highlights ordered by relevance."
+
+Point it at your best existing resume as the gold standard and it matches that format every time.
 
 </details>
+
+### Search files
+*Used by `job-search-os` to find and filter roles.*
 
 <details>
 <summary><strong>search-config.md — what you're hunting for</strong></summary>
 
 <br/>
 
-Titles, locations, salary floor, include/exclude keywords, domains you want and the ones you don't.
+Target titles, locations, salary floor, company stage preference, include/exclude keywords, domains you want and the ones you don't, and a title-band filter (too-junior floor, too-senior ceiling).
 
-Edit this whenever your search shifts — dropped a title, opened up to a new city, raised your floor. The next run reads it fresh, no re-setup needed.
+Edit this whenever your search shifts. The next run reads it fresh — no re-setup needed.
 
 </details>
 
@@ -208,31 +224,45 @@ Edit this whenever your search shifts — dropped a title, opened up to a new ci
 
 <br/>
 
-A tiered list of job boards (reliable ATS boards vs aggregators vs niche sites) plus your target companies grouped by domain, with their career-page URLs. Also tracks active applications and contact history.
+A tiered list of job boards (reliable ATS boards → aggregators → niche) plus target companies grouped by domain, each with its career-page URL. Also tracks active applications and any recruiter contact history.
 
-The skill uses this every time it searches — so it's going to your best sources first, not just Googling randomly.
+The skill goes to these sources first on every search — not just Googling randomly.
 
 </details>
+
+### Learning files
+*Written to automatically as you use the system. The longer you run it, the more valuable these get.*
 
 <details>
 <summary><strong>learnings-log.md — the signal feed</strong></summary>
 
 <br/>
 
-An append-only chronological log. Every meaningful event gets a dated entry: a rejection, a callback, an interview, a ghosting. You don't edit this — the skill writes to it as outcomes come in.
+Append-only chronological log. Every meaningful event gets a dated entry: role found, application sent, ATS rejection, callback, interview, offer, pass, config change. You don't edit this — the skill writes to it.
 
-Read it back after a few weeks. It's a surprisingly clear picture of what's actually happening.
+Read it back after a month. It's a surprisingly clear picture of what's actually happening in your search.
 
 </details>
 
 <details>
-<summary><strong>hypotheses.md + search-patterns.md — the learning engine</strong></summary>
+<summary><strong>hypotheses.md — what the system is learning</strong></summary>
 
 <br/>
 
-`hypotheses.md` tracks what the system is learning before it's proven — each hypothesis has a status (Forming / Confirmed / Disproved) and the evidence behind it.
+Tracks emerging patterns before they're confirmed — each with a status (Forming / Confirmed / Disproved) and the evidence behind it. Two types: apply-hypotheses (what draws you to apply) and callback-hypotheses (why companies call back).
 
-`search-patterns.md` is the promoted version: patterns confirmed by 3+ data points that now actively shape how roles are scored and how resumes are framed. When something keeps working, it moves here. When something keeps failing, it stops being led with.
+When a hypothesis hits 3+ consistent data points, it graduates to `search-patterns.md`.
+
+</details>
+
+<details>
+<summary><strong>search-patterns.md — what's confirmed to work</strong></summary>
+
+<br/>
+
+Confirmed patterns promoted from hypotheses, each with confidence level, evidence, and its implication for how roles are scored and how resumes are framed. When something consistently works, it moves here. When something consistently fails, it stops being led with.
+
+Also holds a Config Change History table — every time `search-config.md` changes, why it changed is logged here.
 
 </details>
 
@@ -241,20 +271,22 @@ Read it back after a few weeks. It's a surprisingly clear picture of what's actu
 
 <br/>
 
-Per application: the keywords, framings, and highlights used, and what happened. Over time this becomes the most valuable file in the folder — it's the direct line between "what I said" and "what I heard back."
+Per application: the keywords, framings, and highlights used, and what happened (ATS rejected / callback / interview / offer / no offer). Over time this becomes the most valuable file in the folder — it's the direct line between "what I said" and "what I heard back."
 
-`resume-tailor` reads this when building new resumes so it leads with what's already working.
+`resume-tailor` reads this every time it builds a new resume, so it leads with what's already working.
 
 </details>
 
+### Resume library
+
 <details>
-<summary><strong>/Resume RAG/ — your resume library</strong></summary>
+<summary><strong>/Resume RAG/ — your tailored resume archive</strong></summary>
 
 <br/>
 
-Every tailored resume gets saved here as a markdown file, plus a short index. When the next role comes in, the skill finds the closest prior resume and reuses the language that already worked — rather than writing every line from scratch.
+Every tailored resume gets saved here as a markdown file, plus a short index (`00_source_index.md`) that lists each file with its target domain and title so the skill can find the closest match quickly.
 
-Resumes are saved as DOCX + PDF to a per-company folder outside this source folder, named with a consistent convention so you can always find them.
+When the next role comes in, `resume-tailor` finds the closest prior resume and reuses the language that already worked — rather than writing every line from scratch. The actual DOCX + PDF files are saved separately, to a per-company folder outside this source folder.
 
 </details>
 
@@ -262,13 +294,16 @@ Resumes are saved as DOCX + PDF to a per-company folder outside this source fold
 
 ## How to customise
 
-Good news: you barely have to. The customisation mostly happens *by using it.*
+You barely have to — most customisation happens by using it. But here's how to steer it deliberately:
 
-Two ways to steer it:
+**Tell it directly**
+*"stop showing me on-site roles"*, *"I want to lean more into product strategy"*, *"remove fintech from my targets."* It updates `search-config.md` and remembers. Your feedback always outranks its own guesses.
 
-**Just tell it** — *"stop showing me on-site roles"* or *"I want to lean more into product strategy."* It updates the config and remembers. Your direct feedback always outranks its own guesses.
+**Edit a file**
+Open `search-config.md` and change what you're targeting. Open `profile.md` and add a win you forgot. Both routes end up in the same place — the skill reads the live files on every run.
 
-**Edit the file** — Open `search-config.md` or `profile.md` and change it yourself. Both routes end up in the same place.
+**Let the loop do it**
+The most powerful customisation is just logging outcomes consistently. After a few weeks, the system knows which framings get you callbacks and which get you filtered — and it adjusts automatically.
 
 ---
 
@@ -279,7 +314,7 @@ That's the whole thing. Not complicated — just a system that *remembers*, whic
 If you only remember five things:
 
 - **Install both** by saving the two `.skill` files
-- **Connect a folder** (Cowork or a Project) so it keeps memory
+- **Connect a folder** (Cowork or a Project) so the files persist between chats
 - **Start with** *"help me set up my job search"* and give it real numbers
 - **Use it** by pasting a job description and saying *"tailor my resume for this"*
 - **Feed it outcomes** every single time you hear back — that's what makes it smart
