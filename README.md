@@ -40,9 +40,9 @@ These two skills are that system, packaged up for you.
 
 ## Why these exist
 
-Most job searches fall apart for the same boring reason: **nothing remembers anything.**
+Job searching is one of those things that *should* get easier the longer you do it — but somehow never does.
 
-You apply, you hear nothing, you move on, and the next application starts from zero. There's no memory, so there's no learning. You repeat the same mistakes for months without noticing.
+You apply, you hear nothing, you move on, and the next application starts from zero. No memory, no learning. You're basically re-inventing yourself from scratch every time, and making the same mistakes you made three weeks ago without even knowing it.
 
 The idea here is simple. **Treat every application as a data point.** A rejection and a callback are both information. If you capture what you led with, then later capture what happened, you slowly learn which roles, which framings, and which keywords actually get you in the door. The system gets a little sharper every week.
 
