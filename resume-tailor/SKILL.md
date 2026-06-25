@@ -11,7 +11,7 @@ The resume anchors the narrative. Do **not** create the cover letter or outreach
 
 This skill does NOT invent achievements or metrics. Everything comes from your source files. If something the JD wants is not in your background, name it as a gap rather than fabricating it.
 
-> **Pairs with the `job-search-os` skill.** If you have it installed, this skill reads the same living files (`profile.md`, `resume-format.md`, `search-config.md`, `search-patterns.md`, `hypotheses.md`, `keyword-ledger.md`) and writes outcomes back to them. They are designed to be used together, but resume-tailor also works on its own.
+> **Pairs with the `job-search-os` skill.** If you have it installed, this skill reads the same living files (`resume-style-guide.md`, `profile.md`, `search-config.md`, `search-patterns.md`, `hypotheses.md`, `keyword-ledger.md`) and writes outcomes back to them. They are designed to be used together, but resume-tailor also works on its own.
 
 ---
 
@@ -26,7 +26,7 @@ The core files this skill needs:
 | File | What it holds |
 |---|---|
 | `profile.md` | Your achievement bank: who you are, career timeline, achievement bullets WITH NUMBERS grouped by theme, core strengths, "what makes you stand out", and a Metric Notes table for any number you state differently across versions. The ONLY source for resume bullets and metrics. |
-| `resume-format.md` | Your format spec (font, margins, sizes, bullet style), section order, per-section writing rules, the tailoring checklist, and file-naming + save-location conventions. |
+| `resume-style-guide.md` | Your canonical resume guide: voice, tone, section patterns, page architecture, format spec, tailoring checklist, and file-naming + save-location conventions. |
 | `search-config.md` *(optional)* | Target titles, locations, domains, include/exclude keywords. Used as a positioning lens. |
 | `search-patterns.md` / `hypotheses.md` *(optional)* | What's confirmed to work vs. still being tested. Positioning context. |
 | `keyword-ledger.md` *(optional)* | Per-application record of the keywords/framings used and the outcome. What makes the system self-improving over time. |
@@ -48,7 +48,7 @@ The JD may arrive as pasted text, a URL, or a file.
 
 ### Step 2 — Read the source files
 
-Read `resume-format.md` and `profile.md` in full. Skim `search-config.md`, `search-patterns.md`, and `hypotheses.md` for the positioning lens if they exist. Then open the `/Resume RAG/` index and pick the 1–2 prior resumes closest to this role (by domain/title); read those. If no prior resumes exist yet, work from `profile.md` alone.
+Read `resume-style-guide.md` and `profile.md` in full. If only `resume-format.md` exists, read it and follow its redirect to the current guide. Skim `search-config.md`, `search-patterns.md`, and `hypotheses.md` for the positioning lens if they exist. Then open the `/Resume RAG/` index and pick the 1–2 prior resumes closest to this role (by domain/title); read those. If no prior resumes exist yet, work from `profile.md` alone.
 
 ### Step 3 — Analyse the JD
 
@@ -62,21 +62,21 @@ Apply the patterns from `search-patterns.md` if present: lead with confirmed str
 
 ### Step 4 — Build the resume sections
 
-Follow `resume-format.md` exactly. In brief (defer to that file if it disagrees):
+Follow `resume-style-guide.md` exactly. In brief (defer to that file if it disagrees):
 
 - **Executive Summary** (2–3 sentences): mirror the JD's domain + competency keywords. No company names, no metrics. Its job is to answer the JD and pass ATS.
 - **Selected Highlights** (4–6): `**Bold Label:** what was done. Metric outcome.` Pick the highlights that map most directly to the JD's stated requirements; order strongest-match first.
 - **Experience bullets:** pull the closest-matching phrasing from the RAG library. Action verb first, metric as a participial phrase at the end. No "responsible for", no "→", no em-dashes, no semicolons splitting two ideas.
 
-Then produce the resume DOCX. Use the **docx** skill for generation if it's available, matching the format spec in `resume-format.md` (font, margins, sizes). Read the docx SKILL.md before building the file. If no docx skill is available, output clean, copy-ready text.
+Then produce the resume DOCX. Use the **docx** skill for generation if it's available, matching the format spec in `resume-style-guide.md` (font, margins, sizes). Read the docx SKILL.md before building the file. If no docx skill is available, output clean, copy-ready text.
 
 ### Step 5 — Run the tailoring checklist
 
-Run the full checklist in `resume-format.md` (target title matches the JD, ≥3 JD keywords in the summary, no company names/metrics in the summary, highlights ordered by relevance, no "→"/em-dashes/"responsible for", correct font throughout). Fix anything that fails before saving.
+Run the full checklist in `resume-style-guide.md` (target title matches the JD, JD language is reflected without keyword stuffing, no company names/metrics in the summary, highlights ordered by relevance, no "→"/em-dashes/"responsible for", correct font throughout, and rendered page spacing visually inspected). Fix anything that fails before saving.
 
 ### Step 6 — Save and deliver the resume for finalization
 
-Save to a per-company folder, creating it if needed (use whatever output convention is set in `resume-format.md`):
+Save to a per-company folder, creating it if needed (use whatever output convention is set in `resume-style-guide.md`):
 
 ```
 [your resume output location]/[Company Name]/
@@ -84,7 +84,7 @@ Save to a per-company folder, creating it if needed (use whatever output convent
 
 Never save tailored artifacts inside the job-search source folder — that folder holds source-of-truth files only.
 
-File naming (per `resume-format.md`):
+File naming (per `resume-style-guide.md`):
 - Resume DOCX: `[YourName]_[Seniority]_[Domain1]_[Domain2].docx`
 - Resume PDF: same name, `.pdf` — **always export a PDF for submission**, keep the DOCX for edits
 

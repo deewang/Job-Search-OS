@@ -96,7 +96,7 @@ Offer a daily find-and-track pass and a weekly learning pass, so the loop runs w
 
 Your resume writer. Give it a job description as text, a link, or a file and it:
 
-1. Reads your `profile.md` achievement bank and `resume-format.md` layout rules
+1. Reads your `profile.md` achievement bank and `resume-style-guide.md` resume rules
 2. Finds the closest prior resume in your `/Resume RAG/` library and reuses proven language
 3. Mirrors the JD's exact language for ATS keyword matching
 4. Orders your highlights strongest-match-first — not just chronologically
@@ -193,13 +193,13 @@ If a number is wrong, fix it here. If a win is missing, add it here. Everything 
 </details>
 
 <details>
-<summary><strong>resume-format.md — your layout rules</strong></summary>
+<summary><strong>resume-style-guide.md — your resume rules</strong></summary>
 
 <br/>
 
-Controls how every resume gets built: font, margins, section order, bullet style, writing rules to avoid, and your preferred English variant (AU/US/UK).
+Controls how every resume gets built and written: voice, tone, font, margins, page architecture, section order, bullet style, spacing, writing rules to avoid, and your preferred English variant (AU/US/UK).
 
-Also holds the tailoring checklist the skill runs before finalising any resume — things like "target title matches the JD", "≥3 JD keywords in the summary", "no company names or metrics in the summary", "highlights ordered by relevance."
+Also holds the tailoring checklist the skill runs before finalising any resume — things like "target title matches the JD", "JD language is reflected without keyword stuffing", "no company names or metrics in the summary", "highlights ordered by relevance", and "page 2 spacing was visually inspected."
 
 Point it at your best existing resume as the gold standard and it matches that format every time.
 

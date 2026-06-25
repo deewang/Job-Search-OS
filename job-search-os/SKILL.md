@@ -44,7 +44,7 @@ Then create the living files (see `references/file-templates.md` for the full st
 | File | What it is |
 |---|---|
 | `profile.md` | Achievement bank — who they are, career timeline, achievement bullets WITH NUMBERS, core strengths, "what makes me stand out", Metric Notes table. The only source for resume metrics. |
-| `resume-format.md` | How their resume is built — format spec, section order, writing rules, tailoring checklist, naming conventions. |
+| `resume-style-guide.md` | Canonical resume guide — voice, tone, section patterns, page architecture, format spec, tailoring checklist, naming conventions, and learning loop. |
 | `search-config.md` | What they're looking for — target titles, locations, domains, deprioritised domains, include/exclude keywords, salary floor + target, title-band filter, scoring notes. |
 | `boards-and-companies.md` | Where to look — tiered job boards (reliable ATS boards vs aggregators vs niche), target companies grouped by domain with career-page URLs, an active-applications/contact-history section. |
 | `learnings-log.md` | Append-only chronological signal log. Every meaningful event gets a dated entry. |

@@ -41,13 +41,15 @@ The small configuration file a scheduler points at. Keep this concise; it is for
 - **What Makes Me Stand Out** — 5–8 distinct angles, each tagged with the role/company type it's best used for.
 - **Metric Notes table** — any metric stated differently across versions, with the recommended canonical number. The ONLY place resume metrics come from.
 
-## resume-format.md — how the resume is built
+## resume-style-guide.md — how the resume is built and written
 
-- **Format spec** — font, margins, sizes, bullet style, derived from the best existing resume (note its path as the "gold standard").
-- **Section order** and per-section writing rules (summary, highlights, experience).
-- **Tailoring checklist** — run before any resume is finalised. Example items: target title matches the JD; ≥3 JD keywords in the summary; no company names/metrics in the summary; highlights ordered by relevance; no "→"/em-dashes/"responsible for"; consistent font; one idea per bullet.
+- **Voice and positioning** — stable writing principles, tone by role type, and rules for sounding like the person rather than a keyword-matched profile.
+- **Format spec** — font, margins, sizes, bullet style, page architecture, and spacing derived from the best existing resume (note its path as the "gold standard").
+- **Section order** and per-section writing rules (summary, highlights, experience, education).
+- **Tailoring checklist** — run before any resume is finalised. Example items: target title matches the JD; JD language is reflected without keyword stuffing; no company names/metrics in the summary; highlights ordered by relevance; no "→"/em-dashes/"responsible for"; consistent font; page 2 is visually inspected for spacing.
 - **Naming + save conventions** — file name pattern and per-company output folder.
-- **Writing rules to avoid** — and the preferred English variant (US/UK/AU).
+- **Learning loop** — what to update after the person edits or sends a final resume.
+- **Compatibility note** — older folders may still contain `resume-format.md`; treat it as a redirect only and follow `resume-style-guide.md` when present.
 
 ## search-config.md — what I'm looking for
 
