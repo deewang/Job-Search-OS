@@ -6,7 +6,7 @@
 
 # Run your job search like a system, don't spray and pray
 
-**Two skills that find roles, tailor your resume, and get smarter every time you hear back.**
+**Two skills that help you find roles, tailor your resume, and learn automatically every time you hear back.**
 
 <br/>
 
