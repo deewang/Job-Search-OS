@@ -65,7 +65,7 @@ One more thing: these skills never invent a metric or a job you didn't have. The
 |---|---|---|
 | **Role** | Your search command centre | Your resume writer |
 | **Input** | Your background, targets, outcomes | A job description (text, URL, or file) |
-| **Output** | Scored role list, tracked applications, pattern insights | Tailored resume (DOCX + PDF) + optional cover letter |
+| **Output** | Scored role list, tracked applications, pattern insights | Tailored resume + optional cover letter (DOCX + PDF if the `docx` skill is installed, otherwise copy-ready text) |
 | **Superpower** | Checks every listing is **actually live** before you click | Leads with your **strongest-matching proof** every time |
 | **Gets smarter?** | Yes — learns from logged outcomes | Yes — reads the keyword ledger, reuses what worked |
 
@@ -101,7 +101,7 @@ Your resume writer. Give it a job description as text, a link, or a file and it:
 3. Mirrors the JD's exact language for ATS keyword matching
 4. Orders your highlights strongest-match-first — not just chronologically
 5. Flags any genuine gaps so you can prep for them in the interview
-6. Saves a DOCX + PDF to a per-company folder
+6. Saves to a per-company folder — DOCX + PDF if you have the `docx` skill installed, copy-ready text if not
 
 Cover letter only comes *after* the resume is finalised — and it matches the same angle, same proof points, same ordering. Resume first, always.
 
