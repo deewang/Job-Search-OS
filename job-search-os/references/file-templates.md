@@ -4,6 +4,34 @@ Structure for each file the setup phase creates. Fill them with the person's rea
 
 ---
 
+## daily-runbook.md — how automated searches run
+
+The durable operating procedure for daily or recurring runs. It should be clear enough that any capable agent can run the same search without copying a giant prompt into a scheduler.
+
+- **Objective** — one paragraph describing the run's job: read the living files, collect feedback, find verified-live roles, update the tracker, and produce a digest.
+- **Read order** — `run-config.md`, `active-learnings.md` if present, `search-config.md`, `search-patterns.md`, `hypotheses.md`, `boards-and-companies.md`, tracker feedback, then the resume/profile files needed for scoring.
+- **Feedback intake** — tracker fields to inspect before searching, such as Listing Feedback, Why I Applied, Confirmed Signal, Notes, Status, Pass Reason.
+- **Search procedure** — sources to query, title/location/domain filters, how to use target-company lists, and how broad the daily search should be.
+- **Verification procedure** — canonical ATS requirement, fallback search pattern, how to classify confirmed live / needs verification / closed.
+- **Scoring procedure** — fit-score rubric, dealbreakers, downrank rules, and how much reasoning to write per role.
+- **Tracker write rules** — duplicate detection, required fields, status values, last-verified date, source/model attribution, and when to update instead of create.
+- **Digest contract** — what to return after each run: new top roles, changed existing roles, unconfirmed roles, ghost listings, config changes, and open questions.
+- **Post-run maintenance** — which files to append or update after the run, including `learnings-log.md`, `search-patterns.md`, `run-config.md`, and `daily-runbook.md` itself.
+
+## run-config.md — editable knobs for each run
+
+The small configuration file a scheduler points at. Keep this concise; it is for run mechanics and temporary focus, not the whole search strategy.
+
+- **Run mode** — manual test / daily search / weekly learning pass / combined.
+- **Schedule** — timezone, intended cadence, and last successful run.
+- **Search scope** — how many roles to add, how many companies or boards to inspect, and whether to prioritize new roles only or reverify active ones too.
+- **Source priority** — ordered list of boards, ATS sources, target-company career pages, and any sources temporarily disabled.
+- **Tracker integration** — tracker type (markdown / CSV / Notion / Sheets), database or file location, required fields, and duplicate keys.
+- **Attribution** — model/agent name field, run ID format, source URL field, first-seen and last-verified fields.
+- **Digest preferences** — where to write or send the digest, max items, and any separate sections the person expects.
+- **Safety rails** — actions the run should not take automatically, such as applying to jobs, emailing recruiters, or changing hard filters without logging a reason.
+- **Temporary overrides** — short-lived focus areas, companies to pause, or hypotheses to test, each with an expiry date.
+
 ## profile.md — the achievement bank
 
 - **Who I am** — 2–3 lines for job matching (level, years, domains, the outcomes I drive).
@@ -13,13 +41,15 @@ Structure for each file the setup phase creates. Fill them with the person's rea
 - **What Makes Me Stand Out** — 5–8 distinct angles, each tagged with the role/company type it's best used for.
 - **Metric Notes table** — any metric stated differently across versions, with the recommended canonical number. The ONLY place resume metrics come from.
 
-## resume-format.md — how the resume is built
+## resume-style-guide.md — how the resume is built and written
 
-- **Format spec** — font, margins, sizes, bullet style, derived from the best existing resume (note its path as the "gold standard").
-- **Section order** and per-section writing rules (summary, highlights, experience).
-- **Tailoring checklist** — run before any resume is finalised. Example items: target title matches the JD; ≥3 JD keywords in the summary; no company names/metrics in the summary; highlights ordered by relevance; no "→"/em-dashes/"responsible for"; consistent font; one idea per bullet.
+- **Voice and positioning** — stable writing principles, tone by role type, and rules for sounding like the person rather than a keyword-matched profile.
+- **Format spec** — font, margins, sizes, bullet style, page architecture, and spacing derived from the best existing resume (note its path as the "gold standard").
+- **Section order** and per-section writing rules (summary, highlights, experience, education).
+- **Tailoring checklist** — run before any resume is finalised. Example items: target title matches the JD; JD language is reflected without keyword stuffing; no company names/metrics in the summary; highlights ordered by relevance; no "→"/em-dashes/"responsible for"; consistent font; page 2 is visually inspected for spacing.
 - **Naming + save conventions** — file name pattern and per-company output folder.
-- **Writing rules to avoid** — and the preferred English variant (US/UK/AU).
+- **Learning loop** — what to update after the person edits or sends a final resume.
+- **Compatibility note** — older folders may still contain `resume-format.md`; treat it as a redirect only and follow `resume-style-guide.md` when present.
 
 ## search-config.md — what I'm looking for
 
@@ -62,6 +92,6 @@ A table tracking, per application: company, role, resume variant used, the keywo
 
 A roles table the person sees at a glance. Markdown, CSV, or a Notion/Sheets board if they prefer. Columns:
 
-`Role · Company · Status · Score · Location · Salary · Link (canonical ATS) · Date Found · Why It Fits · Concerns · Why I Applied · Confirmed Signal · Notes`
+`Role · Company · Status · Score · Location · Salary · Link (canonical ATS) · Date Found · Last Verified · Source / Agent · Why It Fits · Concerns · Why I Applied · Confirmed Signal · Listing Feedback · Notes`
 
 Suggested status values: Found · Researching · Shortlist · Applied · Phone Screen · Interviewing · Offer · Pass · Expired.

@@ -10,6 +10,7 @@ A personal, self-improving job-search system. It does three jobs:
 1. **Set up** — interview the person once and build a folder of living files that capture who they are, what they're looking for, and how their resume is written.
 2. **Find & track** — search for roles that fit, verify each listing is actually live, score and filter them, and log them to a tracker.
 3. **Learn** — after each application and outcome, update the system so future searches and resumes get sharper. Every application is a labelled data point.
+4. **Run cleanly anywhere** — keep recurring-run instructions in markdown files, not buried inside one vendor's scheduled-task prompt, so Claude, Codex, or another agent can run the same system.
 
 The whole idea: the search should get smarter every week, because every rejection, callback, and interview teaches it something.
 
@@ -43,15 +44,19 @@ Then create the living files (see `references/file-templates.md` for the full st
 | File | What it is |
 |---|---|
 | `profile.md` | Achievement bank — who they are, career timeline, achievement bullets WITH NUMBERS, core strengths, "what makes me stand out", Metric Notes table. The only source for resume metrics. |
-| `resume-format.md` | How their resume is built — format spec, section order, writing rules, tailoring checklist, naming conventions. |
+| `resume-style-guide.md` | Canonical resume guide — voice, tone, section patterns, page architecture, format spec, tailoring checklist, naming conventions, and learning loop. |
 | `search-config.md` | What they're looking for — target titles, locations, domains, deprioritised domains, include/exclude keywords, salary floor + target, title-band filter, scoring notes. |
 | `boards-and-companies.md` | Where to look — tiered job boards (reliable ATS boards vs aggregators vs niche), target companies grouped by domain with career-page URLs, an active-applications/contact-history section. |
 | `learnings-log.md` | Append-only chronological signal log. Every meaningful event gets a dated entry. |
 | `hypotheses.md` | What's being learned before it's proven. Apply-hypotheses and callback-hypotheses, each with a status (Forming / Confirmed / Disproved) and evidence. |
 | `search-patterns.md` | Long-term memory — confirmed patterns promoted from hypotheses, plus a config-change history table. |
 | `keyword-ledger.md` | The resume-effectiveness brain — per application, the keywords/framings used and the outcome. |
+| `daily-runbook.md` | The model-agnostic operating procedure for a daily search: read order, verification rules, scoring, tracker writes, digest shape, and post-run maintenance. |
+| `run-config.md` | The small editable config for automated runs: schedule, search scope, volume caps, tracker details, attribution fields, and any temporary overrides. |
 | `/Resume RAG/` | Library of prior tailored resumes (markdown) + an index, so the closest prior resume can be reused. |
 | A tracker | A roles table the person can see at a glance — markdown table, CSV, or a Notion/Sheets board if they prefer. Columns: Role, Company, Status, Score, Location, Salary, Link, Date Found, Why It Fits, Concerns, plus learning columns filled in later: Why I Applied, Confirmed Signal, Notes. |
+
+If the person wants recurring automation, create `daily-runbook.md` and `run-config.md` during setup. The scheduler prompt itself should stay tiny and stable, for example: "Run the job-search OS using `run-config.md` and `daily-runbook.md`; read all living files fresh; write the tracker and digest." Put learnings and changed instructions back into the markdown files, not into the scheduler prompt.
 
 Use their real answers, not placeholders. Where they don't have an answer yet, leave a clearly-marked TODO. Confirm the setup with them before moving on.
 
@@ -61,11 +66,15 @@ Use their real answers, not placeholders. Where they don't have an answer yet, l
 
 ### Step 1 — Read config
 
-Read `search-config.md`, `search-patterns.md`, `hypotheses.md`, and `boards-and-companies.md`. If a distilled `active-learnings.md` exists, read it first.
+Read `daily-runbook.md` and `run-config.md` first if they exist. Then read `search-config.md`, `search-patterns.md`, `hypotheses.md`, and `boards-and-companies.md`. If a distilled `active-learnings.md` exists, read it before the longer learning files.
+
+If `daily-runbook.md` or `run-config.md` is missing but the person is running daily/recurring searches, create them from `references/file-templates.md` before or after the run, depending on urgency. Do not stop the search just because those files are missing.
 
 ### Step 2 — Read decision feedback before searching
 
 If the tracker carries any feedback the person left on roles (why they passed or progressed), read it first and let it tighten scoring. Treat person-authored feedback as stronger than your own inference. When 2+ pieces of feedback share a pattern, update `search-config.md` / `search-patterns.md` and log the change.
+
+For Notion/Sheets trackers, look for fields such as `Listing Feedback`, `Why I Applied`, `Confirmed Signal`, `Notes`, `Status`, and `Pass Reason`. Do not add near-duplicate cards; update the existing card if the canonical ATS link, company+title, or requisition ID matches.
 
 ### Step 3 — Search
 
@@ -92,6 +101,16 @@ Score each confirmed role against the profile and config. **Explain your reasoni
 
 When the person decides to apply, hand off to the **resume-tailor** skill (if installed) to build the tailored resume, and add a row to `keyword-ledger.md`.
 
+### Step 6 — Update run files
+
+At the end of any automated or daily run, update the living files with what changed:
+
+- Append meaningful signals, ghost listings, and config changes to `learnings-log.md`.
+- Promote repeatable search/scoring changes to `search-patterns.md` only when they meet the evidence rule.
+- Update `run-config.md` for run mechanics (caps, sources, tracker columns, temporary focus), not candidate preferences.
+- Update `daily-runbook.md` for durable operating instructions (read order, verification method, digest contract), not one-off observations.
+- Add model/agent attribution to tracker records or the run log when multiple agents may run the system.
+
 ---
 
 ## Phase 3 — Learn (close the loop)
@@ -108,7 +127,7 @@ See `references/learning-loop.md` for the detailed routine and the hypothesis-pr
 
 ### Optional: make it recurring
 
-If a scheduling tool is available, offer to set up a daily or weekly run that does the find-and-track pass plus the learning pass automatically. Otherwise give the person a short checklist they can run themselves.
+If a scheduling tool is available, offer to set up a daily or weekly run that does the find-and-track pass plus the learning pass automatically. Keep the scheduled-task prompt deliberately small and model-agnostic: point it at `run-config.md`, `daily-runbook.md`, and the living files. Otherwise give the person a short checklist they can run themselves.
 
 ---
 
@@ -116,6 +135,7 @@ If a scheduling tool is available, offer to set up a daily or weekly run that do
 
 - **Truthful only.** Reframe and reorder real achievements; never fabricate experience, metrics, titles, or dates.
 - **Living files are the source of truth.** Read them fresh each run; keep them updated.
+- **Prompts stay thin.** Recurring jobs should call the system, not contain the system. Put durable instructions in `daily-runbook.md` and editable knobs in `run-config.md`.
 - **Verify before you trust.** A listing is not real until the canonical ATS URL resolves to a full JD. "Actually live" beats quantity.
 - **Explain your scoring.** Show your reasoning so the person can correct the system — their feedback outranks your inference.
 - **Every application is a data point.** The point of the loop is that the system learns which domains, titles, and keywords actually work.

@@ -1,6 +1,6 @@
 # First-run setup interview
 
-Run this the first time the skill is used, or whenever `profile.md` / `resume-format.md` are missing. The goal is to create the living files **for** the user from their real answers — don't hand them blank templates to fill in.
+Run this the first time the skill is used, or whenever `profile.md` / `resume-style-guide.md` are missing. The goal is to create the living files **for** the user from their real answers — don't hand them blank templates to fill in.
 
 If the user has uploaded or pointed to an existing resume, **extract everything you can from it first**, then only ask about the gaps.
 
@@ -19,12 +19,13 @@ If the user has uploaded or pointed to an existing resume, **extract everything 
 - A "What Makes Me Stand Out" section: 5–8 distinct angles, each tagged with the role/company type it's best used for.
 - A "Metric Notes" table for any metric stated differently across versions, with a recommended canonical number. This is the ONLY place resume metrics come from.
 
-**`resume-format.md`** — how the resume is built:
-- Document format spec (font, margins, sizes, bullet style) derived from their best existing resume (the "gold standard" — note its file path).
-- Section order and per-section writing rules (summary, highlights, experience bullets).
-- A tailoring checklist to run before every resume is finalised (e.g. target title matches the JD, ≥3 JD keywords in the summary, no company names/metrics in the summary, highlights ordered by relevance, no "→"/em-dashes/"responsible for", consistent font).
+**`resume-style-guide.md`** — how the resume is built and written:
+- Document format spec (font, margins, sizes, bullet style), page architecture, and spacing derived from their best existing resume (the "gold standard" — note its file path).
+- Stable voice, role-specific tone, section order, and per-section writing rules (summary, highlights, experience bullets).
+- A tailoring checklist to run before every resume is finalised (e.g. target title matches the JD, JD language is reflected without keyword stuffing, no company names/metrics in the summary, highlights ordered by relevance, no "→"/em-dashes/"responsible for", consistent font, rendered page spacing inspected).
 - File-naming and save-location conventions.
 - Writing rules to avoid (e.g. no "responsible for", no em-dashes, active voice, numerals for metrics, one idea per bullet). Capture their preferred English variant (US/UK/AU).
+- A learning loop for incorporating the person's final edits and callback patterns into future resumes.
 
 **`/Resume RAG/`** — seed it with whatever resumes they share, saved as markdown, plus a short index file (`00_source_index.md`) listing each file with its target domain/title so the skill can find the closest match quickly.
 

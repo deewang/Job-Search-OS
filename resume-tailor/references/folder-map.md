@@ -5,7 +5,7 @@ Everything this skill reads lives in **your job-search folder** (whatever folder
 | File | Purpose |
 |---|---|
 | `profile.md` | Achievement bank: who you are, career timeline, achievement bullets WITH NUMBERS grouped by theme, core strengths, "what makes you stand out", and a Metric Notes table for conflicting numbers. The ONLY source for bullets/metrics. |
-| `resume-format.md` | Format spec (font, margins, sizes, bullet style), section order, writing rules, tailoring checklist, file-naming + save conventions. Governs all formatting/writing decisions. |
+| `resume-style-guide.md` | Canonical resume guide: voice, tone, section patterns, page architecture, format spec, tailoring checklist, file-naming + save conventions, and learning loop. Governs all formatting/writing decisions. |
 | `search-config.md` | Target titles, locations, domains, include/exclude keywords, salary floor. Positioning lens. (Shared with the `job-search-os` skill.) |
 | `search-patterns.md` | Confirmed patterns — what reliably works, what to avoid. Positioning lens. |
 | `hypotheses.md` | Live apply/callback hypotheses. Secondary positioning context. |
