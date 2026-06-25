@@ -168,6 +168,8 @@ Every time you hear back (ghosted, rejected, recruiter call, interview) — tell
 
 After setup, you'll have a folder of plain markdown files. They're yours — open and edit any of them by hand anytime.
 
+> **No Notion required.** Everything lives in plain markdown files in whatever folder you connect. The tracker is a markdown table by default — but if you'd prefer a Notion or Google Sheets board, just say so during setup and it'll build it there instead.
+
 <details>
 <summary><strong>profile.md — your achievement bank</strong></summary>
 
@@ -184,7 +186,7 @@ If a number is wrong, fix it here. If a win is missing, add it here. Everything 
 
 <br/>
 
-Controls how your resume gets built: fonts, layout, do's and don'ts. Point it at your best existing resume as the template and it matches that look every time.
+Controls how your resume gets built: font, margins, section order, bullet style, do's and don'ts. Point it at your best existing resume as the template and it matches that look every time.
 
 If you hate a particular formatting choice, fix it here once and it never comes back.
 
@@ -195,20 +197,64 @@ If you hate a particular formatting choice, fix it here once and it never comes 
 
 <br/>
 
-Titles, locations, salary floor, the domains you want and the ones you don't.
+Titles, locations, salary floor, include/exclude keywords, domains you want and the ones you don't.
 
-Edit this whenever your search shifts — maybe you've decided to drop a title, or you've opened up to a new city. The next run reads it fresh, no re-setup needed.
+Edit this whenever your search shifts — dropped a title, opened up to a new city, raised your floor. The next run reads it fresh, no re-setup needed.
 
 </details>
 
 <details>
-<summary><strong>keyword-ledger.md — the learning brain</strong></summary>
+<summary><strong>boards-and-companies.md — where to look</strong></summary>
 
 <br/>
 
-Tracks which framings led to callbacks versus auto-rejections. You don't really edit this one manually — you let it fill up as outcomes come in.
+A tiered list of job boards (reliable ATS boards vs aggregators vs niche sites) plus your target companies grouped by domain, with their career-page URLs. Also tracks active applications and contact history.
 
-It's fascinating to read back after a month. You start seeing patterns you never would have noticed.
+The skill uses this every time it searches — so it's going to your best sources first, not just Googling randomly.
+
+</details>
+
+<details>
+<summary><strong>learnings-log.md — the signal feed</strong></summary>
+
+<br/>
+
+An append-only chronological log. Every meaningful event gets a dated entry: a rejection, a callback, an interview, a ghosting. You don't edit this — the skill writes to it as outcomes come in.
+
+Read it back after a few weeks. It's a surprisingly clear picture of what's actually happening.
+
+</details>
+
+<details>
+<summary><strong>hypotheses.md + search-patterns.md — the learning engine</strong></summary>
+
+<br/>
+
+`hypotheses.md` tracks what the system is learning before it's proven — each hypothesis has a status (Forming / Confirmed / Disproved) and the evidence behind it.
+
+`search-patterns.md` is the promoted version: patterns confirmed by 3+ data points that now actively shape how roles are scored and how resumes are framed. When something keeps working, it moves here. When something keeps failing, it stops being led with.
+
+</details>
+
+<details>
+<summary><strong>keyword-ledger.md — the resume effectiveness brain</strong></summary>
+
+<br/>
+
+Per application: the keywords, framings, and highlights used, and what happened. Over time this becomes the most valuable file in the folder — it's the direct line between "what I said" and "what I heard back."
+
+`resume-tailor` reads this when building new resumes so it leads with what's already working.
+
+</details>
+
+<details>
+<summary><strong>/Resume RAG/ — your resume library</strong></summary>
+
+<br/>
+
+Every tailored resume gets saved here as a markdown file, plus a short index. When the next role comes in, the skill finds the closest prior resume and reuses the language that already worked — rather than writing every line from scratch.
+
+Resumes are saved as DOCX + PDF to a per-company folder outside this source folder, named with a consistent convention so you can always find them.
 
 </details>
 
